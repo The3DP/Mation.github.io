@@ -2,6 +2,13 @@
 Mation is a further expanded series including super cool animations you do NOT want to miss. 
 > NOTE: This repository is a work in progress.
 ##
+Thank you for understanding the rules and regulations in LICENSE.
+For questions on this repository related to the "Creative Commons Legal Code
+CC0 1.0 Universal" please contact me at my public email:
+d73928430@gmail.com
+
+- The3DP
+##
 Recommended Testing Sites (RTS) 
 Are sites that I test these codes on
 and are sites anyone can use.
