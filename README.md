@@ -1,6 +1,5 @@
 # Mation.github.io
 Mation is a further expanded series including super cool animations you do NOT want to miss. 
-> NOTE: This repository is a work in progress.
 ##
 Thank you for understanding the rules and regulations in LICENSE.
 For questions on this repository related to the "Creative Commons Legal Code
