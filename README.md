@@ -19,6 +19,4 @@ their "Try it yourself" page which
 you can test my code on.
 https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
 ##
->VersION status:
-##
-Repository is <20% complete.
+>This repository is 25% complete.
