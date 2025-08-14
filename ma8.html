@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neon Solar System</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+    }
 
+    .solar-system {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin: -20px;
+      background: radial-gradient(circle, #ffff00, #ff9900);
+      border-radius: 50%;
+      box-shadow: 0 0 40px #ffaa00, 0 0 80px #ff6600;
+      z-index: 10;
+    }
+
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .planet {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      margin: -8px;
+      box-shadow: 0 0 10px;
+    }
+
+    /* Planet colors */
+    .mercury { background: #aaa; box-shadow: 0 0 10px #ccc; }
+    .venus   { background: #f5c16c; box-shadow: 0 0 10px #f5c16c; }
+    .earth   { background: #00f0ff; box-shadow: 0 0 10px #00f0ff; }
+    .mars    { background: #ff3300; box-shadow: 0 0 10px #ff3300; }
+    .jupiter { background: #ffaa77; box-shadow: 0 0 20px #ffaa77; width: 22px; height: 22px; margin: -11px; }
+    .saturn  { background: #ffeeaa; box-shadow: 0 0 15px #ffeeaa; width: 20px; height: 20px; margin: -10px; }
+    .uranus  { background: #66ffff; box-shadow: 0 0 15px #66ffff; }
+    .neptune { background: #3366ff; box-shadow: 0 0 15px #3366ff; }
+
+  </style>
+</head>
+<body>
+
+<div class="solar-system">
+  <div class="sun"></div>
+
+  <!-- Orbits and planets -->
+  <div class="orbit" style="width: 80px; height: 80px;">
+    <div class="planet mercury" id="mercury"></div>
+  </div>
+  <div class="orbit" style="width: 120px; height: 120px;">
+    <div class="planet venus" id="venus"></div>
+  </div>
+  <div class="orbit" style="width: 170px; height: 170px;">
+    <div class="planet earth" id="earth"></div>
+  </div>
+  <div class="orbit" style="width: 220px; height: 220px;">
+    <div class="planet mars" id="mars"></div>
+  </div>
+  <div class="orbit" style="width: 280px; height: 280px;">
+    <div class="planet jupiter" id="jupiter"></div>
+  </div>
+  <div class="orbit" style="width: 340px; height: 340px;">
+    <div class="planet saturn" id="saturn"></div>
+  </div>
+  <div class="orbit" style="width: 400px; height: 400px;">
+    <div class="planet uranus" id="uranus"></div>
+  </div>
+  <div class="orbit" style="width: 460px; height: 460px;">
+    <div class="planet neptune" id="neptune"></div>
+  </div>
+</div>
+
+<script>
+  const planets = [
+    { id: 'mercury', speed: 0.04, radius: 40 },
+    { id: 'venus',   speed: 0.015, radius: 60 },
+    { id: 'earth',   speed: 0.01, radius: 85 },
+    { id: 'mars',    speed: 0.008, radius: 110 },
+    { id: 'jupiter', speed: 0.002, radius: 140 },
+    { id: 'saturn',  speed: 0.0015, radius: 170 },
+    { id: 'uranus',  speed: 0.001, radius: 200 },
+    { id: 'neptune', speed: 0.0007, radius: 230 }
+  ];
+
+  let angle = 0;
+
+  function animate() {
+    angle += 0.5;
+
+    planets.forEach(planet => {
+      const el = document.getElementById(planet.id);
+      const a = angle * planet.speed;
+      const x = Math.cos(a) * planet.radius;
+      const y = Math.sin(a) * planet.radius;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
