@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cool Animations</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #111;
+      cursor: none;
+    }
 
+    .follower {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    #circle {
+      background: rgba(0, 255, 255, 0.7);
+      transition: transform 0.1s linear;
+    }
+
+    #square {
+      background: rgba(255, 100, 255, 0.7);
+      border-radius: 0;
+      transition: transform 0.15s ease;
+    }
+
+    #trail {
+      background: rgba(255, 255, 0, 0.7);
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.9);
+      transition: transform 0.2s ease-out;
+    }
+
+    #shaker {
+      background: rgba(255, 50, 50, 0.7);
+      animation: shake 0.1s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(1px, -1px); }
+      50% { transform: translate(-1px, 1px); }
+      75% { transform: translate(1px, 1px); }
+      100% { transform: translate(-1px, -1px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="circle" class="follower"></div>
+  <div id="square" class="follower"></div>
+  <div id="trail" class="follower"></div>
+  <div id="shaker" class="follower"></div>
+
+  <script>
+    const elements = [
+      { el: document.getElementById('circle'), x: 0, y: 0, speed: 0.08 },
+      { el: document.getElementById('square'), x: 0, y: 0, speed: 0.06 },
+      { el: document.getElementById('trail'), x: 0, y: 0, speed: 0.04 },
+      { el: document.getElementById('shaker'), x: 0, y: 0, speed: 0.1 }
+    ];
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let manualControl = { x: 0, y: 0 };
+
+    // Mouse move
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // WASD control
+    document.addEventListener('keydown', e => {
+      const step = 15;
+      switch (e.key.toLowerCase()) {
+        case 'w': manualControl.y -= step; break;
+        case 'a': manualControl.x -= step; break;
+        case 's': manualControl.y += step; break;
+        case 'd': manualControl.x += step; break;
+      }
+    });
+
+    function animate() {
+      const targetX = mouseX + manualControl.x;
+      const targetY = mouseY + manualControl.y;
+
+      elements.forEach(obj => {
+        obj.x += (targetX - obj.x) * obj.speed;
+        obj.y += (targetY - obj.y) * obj.speed;
+        obj.el.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
