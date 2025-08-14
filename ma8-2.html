@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neon Planets & Moons</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .space {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #111, #000);
+    }
+
+    .sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffff00, #ff9900);
+      box-shadow: 0 0 60px #ffaa00, 0 0 120px #ff6600;
+      z-index: 10;
+    }
+
+    .planet-system {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+    }
+
+    .planet {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      margin: -10px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px;
+    }
+
+    .moon-orbit {
+      position: absolute;
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .moon {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      margin: -4px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px;
+    }
+
+    /* Planet Colors */
+    .earth   { background: #00f0ff; box-shadow: 0 0 10px #00f0ff; }
+    .mars    { background: #ff3300; box-shadow: 0 0 10px #ff3300; }
+    .jupiter { background: #ffaa77; box-shadow: 0 0 20px #ffaa77; width: 30px; height: 30px; margin: -15px; }
+    .saturn  { background: #ffeeaa; box-shadow: 0 0 15px #ffeeaa; width: 26px; height: 26px; margin: -13px; }
+    .uranus  { background: #66ffff; box-shadow: 0 0 15px #66ffff; }
+    .neptune { background: #3366ff; box-shadow: 0 0 15px #3366ff; }
+
+    /* Moon Colors */
+    .moon-earth   { background: #ccc; box-shadow: 0 0 8px #ccc; }
+    .moon-mars    { background: #ff6666; box-shadow: 0 0 6px #ff6666; }
+    .moon-jupiter { background: #ffcc99; box-shadow: 0 0 6px #ffcc99; }
+    .moon-saturn  { background: #fff0cc; box-shadow: 0 0 6px #fff0cc; }
+    .moon-uranus  { background: #ccffff; box-shadow: 0 0 6px #ccffff; }
+    .moon-neptune { background: #88aaff; box-shadow: 0 0 6px #88aaff; }
+
+  </style>
+</head>
+<body>
+<div class="space">
+  <div class="sun"></div>
+
+  <!-- Earth + Moon -->
+  <div class="planet-system" style="transform: translate(-200px, 0)">
+    <div class="planet earth" id="earth"></div>
+    <div class="moon-orbit" style="width: 40px; height: 40px;">
+      <div class="moon moon-earth" id="moon-earth"></div>
+    </div>
+  </div>
+
+  <!-- Mars + 2 moons -->
+  <div class="planet-system" style="transform: translate(-150px, -100px)">
+    <div class="planet mars" id="mars"></div>
+    <div class="moon-orbit" style="width: 25px; height: 25px;">
+      <div class="moon moon-mars" id="phobos"></div>
+    </div>
+    <div class="moon-orbit" style="width: 35px; height: 35px;">
+      <div class="moon moon-mars" id="deimos"></div>
+    </div>
+  </div>
+
+  <!-- Jupiter + 4 moons -->
+  <div class="planet-system" style="transform: translate(0, -200px)">
+    <div class="planet jupiter" id="jupiter"></div>
+    <div class="moon-orbit" style="width: 50px; height: 50px;">
+      <div class="moon moon-jupiter" id="io"></div>
+    </div>
+    <div class="moon-orbit" style="width: 70px; height: 70px;">
+      <div class="moon moon-jupiter" id="europa"></div>
+    </div>
+    <div class="moon-orbit" style="width: 90px; height: 90px;">
+      <div class="moon moon-jupiter" id="ganymede"></div>
+    </div>
+    <div class="moon-orbit" style="width: 110px; height: 110px;">
+      <div class="moon moon-jupiter" id="callisto"></div>
+    </div>
+  </div>
+
+  <!-- Saturn + 3 moons -->
+  <div class="planet-system" style="transform: translate(150px, -100px)">
+    <div class="planet saturn" id="saturn"></div>
+    <div class="moon-orbit" style="width: 40px; height: 40px;">
+      <div class="moon moon-saturn" id="titan"></div>
+    </div>
+    <div class="moon-orbit" style="width: 55px; height: 55px;">
+      <div class="moon moon-saturn" id="enceladus"></div>
+    </div>
+    <div class="moon-orbit" style="width: 70px; height: 70px;">
+      <div class="moon moon-saturn" id="rhea"></div>
+    </div>
+  </div>
+
+  <!-- Uranus + 2 moons -->
+  <div class="planet-system" style="transform: translate(200px, 0)">
+    <div class="planet uranus" id="uranus"></div>
+    <div class="moon-orbit" style="width: 35px; height: 35px;">
+      <div class="moon moon-uranus" id="titania"></div>
+    </div>
+    <div class="moon-orbit" style="width: 50px; height: 50px;">
+      <div class="moon moon-uranus" id="oberon"></div>
+    </div>
+  </div>
+
+  <!-- Neptune + 1 moon -->
+  <div class="planet-system" style="transform: translate(150px, 100px)">
+    <div class="planet neptune" id="neptune"></div>
+    <div class="moon-orbit" style="width: 40px; height: 40px;">
+      <div class="moon moon-neptune" id="triton"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const moonAnimations = [
+    { id: "moon-earth",     speed: 0.04, radius: 20 },
+    { id: "phobos",         speed: 0.06, radius: 12.5 },
+    { id: "deimos",         speed: 0.03, radius: 17.5 },
+    { id: "io",             speed: 0.07, radius: 25 },
+    { id: "europa",         speed: 0.05, radius: 35 },
+    { id: "ganymede",       speed: 0.035, radius: 45 },
+    { id: "callisto",       speed: 0.02, radius: 55 },
+    { id: "titan",          speed: 0.025, radius: 20 },
+    { id: "enceladus",      speed: 0.04, radius: 27.5 },
+    { id: "rhea",           speed: 0.03, radius: 35 },
+    {
