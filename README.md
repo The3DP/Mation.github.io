@@ -1,4 +1,4 @@
-<p align="center"> Mation
+<p align="center"> #Mation
 
 Mation is a further expanded series including super cool animations you do NOT want to miss. 
 
