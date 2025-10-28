@@ -17,11 +17,11 @@ The recommended testing site for this
 program is ww3schools.
 Click on this link to go to 
 their "Try it yourself" page which
-you can test my code (*at this site.*)[https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default]
+you can test my code [*at this site.*](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default)
 
 Simply paste the code from your chosen file. For Example:
 
 <img width="1440" height="900" alt="Screenshot 2025-08-14 at 8 07 52 AM" src="https://github.com/user-attachments/assets/136f6024-df53-4f13-b0e2-81fb132e0845" />
 
-The code in the photo above can be found in the file "ma8.html," and is displayed [*over here.*]([https://the3dp.github.io/Orbit/](https://planetmod.w3spaces.com)
+The code in the photo above can be found in the file "ma8.html," and is displayed [*over here.*](https://planetmod.w3spaces.com)
 
